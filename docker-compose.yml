@@ -34,20 +34,13 @@ services:
     depends_on:
       - pygeoapi
     env_file:
-      - .env     # path to your .env file
+      - .env
     volumes:   
-      # - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./apache-httpd/robots.txt:/usr/local/apache2/htdocs/robots.txt      
-      # - /etc/cert/2ogcapi.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
-      # - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
     ports:
       - "80:80"
       - "443:443"
-    # networks:
-    #   default:
-    #     aliases:
-    #       - cite.ogcapi.byteroad.net
     restart: always
     logging:
       driver: "json-file"
@@ -61,7 +54,7 @@ services:
     expose:
       - "80"
     env_file:
-      - .env     # path to your .env file
+      - .env
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./pygeoapi/templates:/templates # jinja templates
