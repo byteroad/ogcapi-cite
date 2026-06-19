@@ -80,6 +80,8 @@ services:
     command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     networks:
       - default
+    ports:
+      - "3000:3000"
     healthcheck:
       test: ["NONE"]
     logging:

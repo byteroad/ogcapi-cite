@@ -181,9 +181,10 @@ resources:
           name: MVT-proxy
           data: http://tiles:3000/srup_arvores_point/{z}/{x}/{y}?f=mvt
           options:
+            bounds: [[-9.785164, 36.962833],[-6.000000, 42.104653]]
             zoom:
                 min: 0
-                max: 15
+                max: 5
             schemes:
             - WebMercatorQuad
           format:
